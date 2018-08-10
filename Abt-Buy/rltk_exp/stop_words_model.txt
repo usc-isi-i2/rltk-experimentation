@@ -1,0 +1,10 @@
+black
+red
+grey
+white
+blue
+yellow
+green
+purple
+1080p
+720p
