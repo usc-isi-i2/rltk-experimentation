@@ -14,9 +14,9 @@ import json
 
 # load gt
 gt_train = rltk.GroundTruth()
-gt_train.load('gt_train_20180810.csv')
+gt_train.load('gt_train_20180920.csv')
 gt_test = rltk.GroundTruth()
-gt_test.load('gt_test_20180810.csv')
+gt_test.load('gt_test_20180920.csv')
 
 # ------------------------------
 # train model
