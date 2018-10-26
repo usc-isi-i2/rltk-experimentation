@@ -1,6 +1,7 @@
 from create_datasets import *
 from feature_vector import *
 from sklearn import svm
+from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -28,6 +29,8 @@ for r_abt, r_buy in train_pairs:
     y.append(gt_train.get_label(r_abt.id, r_buy.id))
 
 clf = svm.SVC(probability=True)
+res = 5
+clf = GridSearchCV(clf, {'C' : [i / res for i in range(1, res + 1)], 'gamma' : [i / (100 * res) for i in range(0, res + 1)]})
 # clf = DecisionTreeClassifier()
 # clf = RandomForestClassifier()
 clf.fit(X, y)
