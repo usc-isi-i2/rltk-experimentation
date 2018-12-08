@@ -1,100 +1,96 @@
-{"id": "KrVgTXcNPPUJ", "names": "S Achaya, V Poosala, S Ramaswamy", "date": "28, Dec 2018"}
-{"id": "c2dH5RxNj6kJ", "names": "S Adal\u00c3\u0084\u00c2\u00b1, ML Sapino, VS Subrahmanian", "date": "21, Dec 2018"}
-{"id": "0lAHCM-lcjIJ", "names": "S Acharya, R Alonso, M Franklin, S Zdonik, B Disks", "date": "08, Dec 2018"}
-{"id": "rmtEGXAXHKIJ", "names": "S Adali, KS Candan, Y Papakonstantinou, VS  ", "date": "15, Dec 2018"}
-{"id": "WGWZ2cNZW2YJ", "names": "S Acharya, PB Gibbons, V Poosala", "date": "08, Dec 2018"}
-{"id": "qdCTR7WpuFUJ", "names": "M Franklin, S Zdonik", "date": "09, Dec 2018"}
-{"id": "y74PIIvb_GMJ", "names": "S Achary, M Franklin, S Zdonik, R Alonso", "date": "07, Dec 2018"}
-{"id": "IkNOhDqEY18J", "names": "S Acharya, PB Gibbons", "date": "12, Dec 2018"}
-{"id": "NDzryNtTyL8J", "names": "S Acharya, M Franklin, S Zdonik, B Push", "date": "16, Dec 2018"}
-{"id": "FlE1JdgElGQJ", "names": "A Adya, R Gruber, B Liskov, U Maheshwari", "date": "24, Dec 2018"}
-{"id": "_-yXA5HLnqoJ", "names": "SA VI, R Alonso, M Franklin, S Zdonik", "date": "02, Dec 2018"}
-{"id": "_CkpzhLiR30J", "names": "S Adali, KS Candan, Y Papakonstantinou, VS  ", "date": "01, Dec 2018"}
-{"id": "YQ90BYSVqbsJ", "names": "S Adal\u00c3\u0084\u00c2\u00b1, P Bonatti, ML Sapino, VS Subrahmanian", "date": "09, Dec 2018"}
-{"id": "Fd0jPlSwFWcJ", "names": "CA lAMI Ramesh", "date": "17, Dec 2018"}
-{"id": "Cbwq3JSxrSAJ", "names": "S Adah, ML Sapino, VS Subrahmanian", "date": "10, Dec 2018"}
-{"id": "FDPwbRQbfIAJ", "names": "S Acharya, M Franklin, S Zdonik", "date": "23, Dec 2018"}
-{"id": "XytbGy--8LMJ", "names": "B Adelberg, H Garcia-Molina, J Widom", "date": "11, Dec 2018"}
-{"id": "uMmcsye0YCkJ", "names": ", KS Candan, Y Papakonstantinou, VS Subrahmanian", "date": "28, Dec 2018"}
-{"id": "rO4-yA3tlfoJ", "names": "S Acharya, R Alonso, M Franklin, S Zdonik", "date": "07, Dec 2018"}
-{"id": "69JsZwNpla0J", "names": "S Adal, P Bonati, ML Sapino", "date": "05, Dec 2018"}
-{"id": "bhWLVCoDuNQJ", "names": "S Adal, ML Sapino, VS Subrahmanian", "date": "30, Dec 2018"}
-{"id": "eRSkDzxP1JcJ", "names": "KJ Achyutuni, E Omiecinski, SB Navathe", "date": "05, Dec 2018"}
-{"id": "url:http://portal.acm.org/citation.cfm%3Fdoid%3D375663.375759", "names": "A Adii, D Botzer, O Etzion, T Yatzkar-Haham", "date": "10, Dec 2018"}
-{"id": "2fO9nM2FoGYJ", "names": "S Acharya, R Alonso, M Franklin, S Zdonik", "date": "24, Dec 2018"}
-{"id": "gKOsM57uFB4J", "names": "S Achaya, V Poosala, S Ramaswamy", "date": "07, Dec 2018"}
-{"id": "QCAu6wPhnAAJ", "names": "A Swarup, M Franklin, S Zdonik", "date": "05, Dec 2018"}
-{"id": "I8qFyTX4FhoJ", "names": "S Adali, KS Candan, Y Papakonstantinou, VS  ", "date": "01, Dec 2018"}
-{"id": "bfcbZlt6vngJ", "names": "A Adya, R Gruber, B Liskov, U Maheshwari", "date": "26, Dec 2018"}
-{"id": "qbubaA6mQawJ", "names": "CC Aggarwal", "date": "28, Dec 2018"}
-{"id": "umGxlKvzLoUJ", "names": "S Acharya, M Franklin, S Zdonik, B Push", "date": "22, Dec 2018"}
-{"id": "DakOA4Ew-poJ", "names": "S Abiteboul, S Cluet, T Milo", "date": "29, Dec 2018"}
-{"id": "-k0cD5NwXnoJ", "names": "S Acharya, V Poosala, S Ramaswamy", "date": "02, Dec 2018"}
-{"id": "a1esMNRsK_UJ", "names": "PB Gibbons, V Poosala, S Acharya, Y Bartal", "date": "06, Dec 2018"}
-{"id": "mOngiXbKrNkJ", "names": "S Acharya, PB Gibbons, V Poosala, S Ramaswamy", "date": "09, Dec 2018"}
-{"id": "5I0ArBmDRcEJ", "names": "B Adelberg", "date": "04, Dec 2018"}
-{"id": "9OEjtHuRUzsJ", "names": "S Acharya, M Franklin, S Zdonik", "date": "25, Dec 2018"}
-{"id": "zZo47Z-jVX4J", "names": "B Adelberg, H Garcia-Molina, J Widom", "date": "02, Dec 2018"}
-{"id": "Hf3gZHIcm58J", "names": "S Acharya, M Franklin, S Zdonik", "date": "24, Dec 2018"}
-{"id": "xnDzelm2t1QJ", "names": "AA AC, S Chaudhuri", "date": "28, Dec 2018"}
-{"id": "url:http://portal.acm.org/citation.cfm%3Fid%3D872851", "names": "E Agichtein, L Gravano", "date": "29, Dec 2018"}
-{"id": "5uimonC4q_QJ", "names": "CC Aggarwal, CM Procopiuc, JL Wolf, PS Yu, JS Park", "date": "13, Dec 2018"}
-{"id": "rYC-j_j4Yv0J", "names": "S Adal, P Bonatti, ML Sapino, VS Subrahmanian", "date": "09, Dec 2018"}
-{"id": "UT0h0HcwLyUJ", "names": "B Adelberg", "date": "30, Dec 2018"}
-{"id": "0dY1brFaEzgJ", "names": "S Acharya, V Poosala, S Ramaswamy", "date": "05, Dec 2018"}
-{"id": "7OvO0Y3IU8gJ", "names": "S Adali, ML SapinoetV", "date": "02, Dec 2018"}
-{"id": "gBVNSFeS4P8J", "names": "DJ Abadi, D Carney, U \u00c3\u0083?etintemel, M Cherniack, C  ", "date": "27, Dec 2018"}
-{"id": "WWaxLMIptTMJ", "names": "A Aboulnaga, S Chaudhuri", "date": "11, Dec 2018"}
-{"id": "5vntH4boqdgJ", "names": "SA CR941, PB Gibbons, V PoosaIa, S Ramaswamy", "date": "10, Dec 2018"}
-{"id": "OV5GSHDaYNMJ", "names": "C Aggrawal, PS Yu", "date": "12, Dec 2018"}
-{"id": "G3dX_RTA26MJ", "names": "CC Aggarwal, C Procopiuc, JL Wolf, PS Yu, JS Park", "date": "20, Dec 2018"}
-{"id": "3jUi_Yf4DfIJ", "names": "A Adi, D Botzer, O Etzion, T Yatzkar-Haham", "date": "18, Dec 2018"}
-{"id": "ahfoveFQC2sJ", "names": "S Acharya, P Gibbons, V Poosala, S Ramaswarmy", "date": "01, Dec 2018"}
-{"id": "k7zpSukSfYsJ", "names": "FN Afrati, C Li, JD Ullman", "date": "10, Dec 2018"}
-{"id": "4GT0Krd9RP0J", "names": "S Abiteboul, S Cluet, T Milo", "date": "04, Dec 2018"}
-{"id": "C221gFS5VVoJ", "names": "SAPBG Viswanath, PS Ramaswamy", "date": "19, Dec 2018"}
-{"id": "VuY9Y49GqXgJ", "names": "DJ Abadi, D Carney, U Cetintemel, M Cherniack, C  ", "date": "09, Dec 2018"}
-{"id": "pw234_REfHUJ", "names": "S Adali, S Candan, Y Papakonstantinou, VS  ", "date": "15, Dec 2018"}
-{"id": "lyTJMJmpo8IJ", "names": "B Adelberg, A NoDoSE", "date": "15, Dec 2018"}
-{"id": "mYFf63cZ4lUJ", "names": "S Acharya, PB Gibbons", "date": "14, Dec 2018"}
-{"id": "U8adXFUIr3EJ", "names": "FN Afrati, C Li, JD Ullman", "date": "29, Dec 2018"}
-{"id": "ALk7huiKjWAJ", "names": "RC Agarwal", "date": "07, Dec 2018"}
-{"id": "Ca-BABwlsQAJ", "names": "RC Agarwrd", "date": "09, Dec 2018"}
-{"id": "cu9DXtjeF24J", "names": "S Abiteboul, S Cluet, T Milo", "date": "07, Dec 2018"}
-{"id": "h2z51QPXcSkJ", "names": "S Acharya, R Alonso, MJ Franklin, S Zdonik", "date": "10, Dec 2018"}
-{"id": "eBnT7lhV2LwJ", "names": "D Abadi, D Carney, U Cetintemel, M Cherniack, C  ", "date": "03, Dec 2018"}
-{"id": "f2Lea-RN8dsJ", "names": "DJ Abadi", "date": "27, Dec 2018"}
-{"id": "EpUtXEhwDaUJ", "names": "SA AGPR, PB Gibbons, V Poosala, S Ramaswamy", "date": "01, Dec 2018"}
-{"id": "x5jeMyauzWgJ", "names": "C Aggarwal, P Yu", "date": "24, Dec 2018"}
-{"id": "GDoFPiEzEhQJ", "names": "E Agichtein, L Gravano, J Pavel, V Sokolova, A  ", "date": "04, Dec 2018"}
-{"id": "dfSPs7YoyWsJ", "names": "CC Aggarwal, PS Yu", "date": "02, Dec 2018"}
-{"id": "NbLabaGWoh4J", "names": "B Adelberg, H Garcia-Molina, B Kao", "date": "15, Dec 2018"}
-{"id": "VlVV2mEnoQ4J", "names": "S Acharaya, PB Gibbons, V Poosala, S Ramaswamy", "date": "28, Dec 2018"}
-{"id": "Rjb06zlxbLIJ", "names": "S Abiteboul, A Bonifati, G Cobena, I Manolescu, T  ", "date": "29, Dec 2018"}
-{"id": "ZdWKBKSoMUQJ", "names": "S Acharya, R Alonso, M Franklin, S Zdonik", "date": "08, Dec 2018"}
-{"id": "q_bQLiJ-KZAJ", "names": "S Acharya, PB Gibbons, V Poosala", "date": "20, Dec 2018"}
-{"id": "s9hhR-EdDGgJ", "names": "CC Aggarwal, JL Wolf, PS Yu", "date": "30, Dec 2018"}
-{"id": "url:http://portal.acm.org/ft_gateway.cfm%3Fid%3D276350%26type%3Dpdf%26dl%3DGUIDE%26dl%3DACM%26CFID%3D11111111%26CFTOKEN%3D2222222", "names": "NR Adam", "date": "19, Dec 2018"}
-{"id": "czJmrc_4tZ4J", "names": "S Acharya, PB Gibbons, V Poosala, S Ramaswamy", "date": "19, Dec 2018"}
-{"id": "ahVfYoqGq6gJ", "names": "B Adelberg", "date": "29, Dec 2018"}
-{"id": "tK1_3wGUIHsJ", "names": "CC Aggarwal", "date": "01, Dec 2018"}
-{"id": "wjKnsQWl5ZoJ", "names": "CC Aggarwal, L Wolf, S Yu", "date": "15, Dec 2018"}
-{"id": "3hsPMPTl2msJ", "names": "B Adelberg", "date": "04, Dec 2018"}
-{"id": "JrU1gnfH1sYJ", "names": "B Adelberg", "date": "12, Dec 2018"}
-{"id": "GOguWgH6D_UJ", "names": "S Acharya, R Alonso, M Franklin, S Zdonik", "date": "05, Dec 2018"}
-{"id": "t8KDgCSg9RIJ", "names": "PB Gibbons, V Poosala, S Acharya, Y Bartal, Y  ", "date": "14, Dec 2018"}
-{"id": "s40fqzss4woJ", "names": "B Adelberg, M Denny", "date": "18, Dec 2018"}
-{"id": "BpZjLfob1eIJ", "names": "S Adali, KS Candan, Y Papakonstantinou, VS  ", "date": "12, Dec 2018"}
-{"id": "QkTd5WogN-AJ", "names": "CC Aggarwal, PS Yu", "date": "28, Dec 2018"}
-{"id": "clF04MGcPSUJ", "names": "S Acharya, R Alonso, MJ Franklin, S Zdonik", "date": "12, Dec 2018"}
-{"id": "zE4iM0h4W2sJ", "names": "SA ACPS, KS Candan", "date": "07, Dec 2018"}
-{"id": "EP8u32KwMe4J", "names": "A Adya, R Gruber, B Liskov, U Maheshwari", "date": "29, Dec 2018"}
-{"id": "s064OghlyIUJ", "names": "S Acharya, PB Gibbons, V Poosala, S Ramaswamy", "date": "05, Dec 2018"}
-{"id": "cHxtmO9talkJ", "names": "SA PI, R Alonso, M Franklin, S Zdonik", "date": "24, Dec 2018"}
-{"id": "AxpQwgyRyLgJ", "names": "S Abiteboul, A Bonifati, G Cobena, I Manolescu, T  ", "date": "12, Dec 2018"}
-{"id": "Ra8-qY_qjZoJ", "names": "S Adali, KS Candan, Y Papakonstantinou, VS  ", "date": "20, Dec 2018"}
-{"id": "7YMi5qKSe2EJ", "names": "A Adya, R Gruber, B Liskov, U Maheshwari", "date": "01, Dec 2018"}
-{"id": "smzeHDQ3zbMJ", "names": "S Acharaya, PB Gibbons, V Poosala", "date": "15, Dec 2018"}
-{"id": "npAaKsmFlpcJ", "names": "S Adali, K Candan, Y Papakonstantinou", "date": "26, Dec 2018"}
-{"id": "6i8hYEhbelEJ", "names": "CC Aggarwal, PS Yu", "date": "16, Dec 2018"}
-{"id": "2RuI2vzDUW8J", "names": "S Acharya, V Poosala", "date": "15, Dec 2018"}
+{"id": "ek26aiEheesJ", "names": "M Fernandez, J Kang, A Levy, D Suciu", "date": "26, Dec 2018"}
+{"id": "rmtEGXAXHKIJ", "names": "S Adali, KS Candan, Y Papakonstantinou, VS  ", "date": "29, Dec 2018"}
+{"id": "D0z0BDnbnFcJ", "names": "S Christodoulakis", "date": "27, Dec 2018"}
+{"id": "noTo81QxmHQJ", "names": "ACMS Anthology, P Edition", "date": "28, Dec 2018"}
+{"id": "l0W27c1C3NwJ", "names": "W Litwin, MA Neimat, DA Schneider", "date": "28, Dec 2018"}
+{"id": "IkNOhDqEY18J", "names": "S Acharya, PB Gibbons", "date": "26, Dec 2018"}
+{"id": "6QZGeKna5lgJ", "names": "T Gri", "date": "23, Dec 2018"}
+{"id": "XFCkL9QhTjIJ", "names": "K Koperski, J Han", "date": "25, Dec 2018"}
+{"id": "9Wo54Wyh_X8J", "names": "H Garcia-Molina, S Raghavan", "date": "23, Dec 2018"}
+{"id": "9uxj2XzGt9UJ", "names": "M Flickner, H Sawhney, W Niblack, J Ashley, Q  ", "date": "28, Dec 2018"}
+{"id": "gIFZWp_iCmUJ", "names": "M Tork Roth", "date": "20, Dec 2018"}
+{"id": "Up9QQITiHzAJ", "names": "C Cranor, Y Gao, T Johnson, V Shkapenyuk, O  ", "date": "27, Dec 2018"}
+{"id": "RusJdYPDgQ4J", "names": "N Mamoulis, D Papadias", "date": "25, Dec 2018"}
+{"id": "C8RLbWKCgicJ", "names": "ML Lee, M Kitsuregawa, BC Ooi, KL Tan, A Mondal", "date": "27, Dec 2018"}
+{"id": "soiN2U4tXykJ", "names": "A Silberschatz, M Stonebraker, J Ullman", "date": "22, Dec 2018"}
+{"id": "AwFxLUGiceUJ", "names": "A Zhou, Q Wang, Z Guo, X Gong, S Zheng, H Wu, J  ", "date": "27, Dec 2018"}
+{"id": "F2ecYx97F2sJ", "names": "D Lomet, G Weikum", "date": "26, Dec 2018"}
+{"id": "khdP4spNnPoJ", "names": "VS Verykios, GV Moustakides, MG Elfeky", "date": "27, Dec 2018"}
+{"id": "xhle0bk7qsMJ", "names": "S Dar, MJ Franklin, B\u00c3\u0083? J\u00c3\u0083\u00c2\u00b3nsson, D Srivastava", "date": "28, Dec 2018"}
+{"id": "XytbGy--8LMJ", "names": "B Adelberg, H Garcia-Molina, J Widom", "date": "23, Dec 2018"}
+{"id": "rrSZOoViGqoJ", "names": "I Tatarinov\u00c3\u00a2?\u00c2\u00a6", "date": "23, Dec 2018"}
+{"id": "Ph7ZpmdNOPEJ", "names": "V Crescenzi, G Mecca, P Merialdo\u00c3\u00a2?\u00c2\u00a6", "date": "29, Dec 2018"}
+{"id": "tTQpdbZYZGoJ", "names": "R Sfikant, R Agrawal", "date": "20, Dec 2018"}
+{"id": "sG7PCEiN2xAJ", "names": ", A Jaime, NW Paton", "date": "20, Dec 2018"}
+{"id": "jXvsW6VxbMYJ", "names": "S Brin", "date": "26, Dec 2018"}
+{"id": "cvchvz9-m_oJ", "names": "R Baeza-Yates, G Navarro", "date": "28, Dec 2018"}
+{"id": "1hkVjoUg8hUJ", "names": "X Zhang", "date": "26, Dec 2018"}
+{"id": "G2QuI5QYYMoJ", "names": "S Ceri, I Manolescu", "date": "28, Dec 2018"}
+{"id": "8_5A88ESaQ0J", "names": "A Datta, K Dutta, D Fishman, K Ramamritham, H  ", "date": "21, Dec 2018"}
+{"id": "yfjKkIhvfXcJ", "names": "MJ Jordan, T Prinzezis, MP Atkinson, L Daynes, S  ", "date": "23, Dec 2018"}
+{"id": "LDxiVdRU6EEJ", "names": "B Hammond", "date": "21, Dec 2018"}
+{"id": "F4DtzxvVZnoJ", "names": "JL Ambite, CA Knoblock, MR Kolahdouzan, M Muslea,  ", "date": "27, Dec 2018"}
+{"id": "mpnnRdFUUJQJ", "names": "R Pottinger", "date": "27, Dec 2018"}
+{"id": "zkbTv93Zp1UJ", "names": "F Levy", "date": "25, Dec 2018"}
+{"id": "bTI28RjBpPwJ", "names": "PCK Hung, HP Yeung, K Karlapalem", "date": "27, Dec 2018"}
+{"id": "_jl3bN2QlE4J", "names": "AP Sistla, CT Yu, R Haddad", "date": "25, Dec 2018"}
+{"id": "ZnWLup8HMkUJ", "names": "AP Stolboushkin, MA Taitslin", "date": "22, Dec 2018"}
+{"id": "bTYTn8VG5hIJ", "names": "D Barbara, T Imielinski", "date": "24, Dec 2018"}
+{"id": "wfjeWtEY2NcJ", "names": "S Melnik, E Rahm, PA Bernstein", "date": "21, Dec 2018"}
+{"id": "OmYc0wE1j4kJ", "names": "ACMS Anthology", "date": "29, Dec 2018"}
+{"id": "X94gDE70Zn0J", "names": "GS Manku, S Rajagopalan, BG Lindsay", "date": "28, Dec 2018"}
+{"id": "cIJQ0qxrkMIJ", "names": "RA AS941, R Srikant", "date": "22, Dec 2018"}
+{"id": "g8jnRVyQukAJ", "names": "MJ Carey, DJ DeWitt", "date": "20, Dec 2018"}
+{"id": "V8Ls_TYs6mgJ", "names": "S Guo, W Sun, MA Weiss", "date": "20, Dec 2018"}
+{"id": "W1IcM8IUwAEJ", "names": "W Huemmer, W Lehner, H Wedekind", "date": "24, Dec 2018"}
+{"id": "YMcmy4FOXi8J", "names": "U Roehm, K Boehm, HJ Schek, H Schuldt", "date": "24, Dec 2018"}
+{"id": "c9Humx2-EMgJ", "names": "M Chemiack, S Zdonik", "date": "24, Dec 2018"}
+{"id": "2rysKgS6lugJ", "names": "J Hammer, H Garcia-Molina, S Nestorov, R Yerneni,  ", "date": "20, Dec 2018"}
+{"id": "ruMkEFagTIUJ", "names": "J Gray, G Graefe", "date": "21, Dec 2018"}
+{"id": "zSO1Y5W7WkwJ", "names": "L Libkin", "date": "27, Dec 2018"}
+{"id": "LxyVmHubIfUJ", "names": "MM Breunig, HP Kriegel, P Kr\u00c3\u0083\u00c2\u00b6ger, J Sander", "date": "26, Dec 2018"}
+{"id": "XVP8s4K0Bg4J", "names": "DE Simmen, EJ Shekita, T Malkemus", "date": "24, Dec 2018"}
+{"id": "fXziEl_Htv8J", "names": "C Nyberg, T Barclay, Z Cvetanovic, J Gray, DB  ", "date": "26, Dec 2018"}
+{"id": "0aJOXauNqYIJ", "names": "A Deutsch, L Popa, V Tannen", "date": "25, Dec 2018"}
+{"id": "tbZ0J3HLI18J", "names": "G Kappel, W Retschitzegger", "date": "29, Dec 2018"}
+{"id": "jfkafZcMjgIJ", "names": "I Tatarinov, ZG Ives, AY Halevy, DS Weld", "date": "24, Dec 2018"}
+{"id": "x4HkJDEYFmYJ", "names": "PB Gibbons, Y Matias", "date": "22, Dec 2018"}
+{"id": "ckrgSn0vBOMJ", "names": "M Fernandez, Y Kadiyska, D Suciu, A Morishima, WC  ", "date": "22, Dec 2018"}
+{"id": "kaq5eLrzrQsJ", "names": "J Shanmugasundaram, H Gang\u00c3\u00a2?\u00c2\u00a6", "date": "20, Dec 2018"}
+{"id": "707RPzHAB8YJ", "names": "E Rahm", "date": "28, Dec 2018"}
+{"id": "WvvY_Ao19mAJ", "names": "S Dar, HV Jagadish, AY Levy, D Srivastava", "date": "23, Dec 2018"}
+{"id": "IOqPoq2MSvQJ", "names": "G Gardarin, F Machuca", "date": "27, Dec 2018"}
+{"id": "VxMarpzwtzQJ", "names": "KJ Goldman, N Lynch", "date": "21, Dec 2018"}
+{"id": "BTalXWt3faUJ", "names": "D Cosley, S Lawrence, DM Pennock", "date": "24, Dec 2018"}
+{"id": "VuMPPr6k95AJ", "names": "S Berchtold, DA Keim", "date": "21, Dec 2018"}
+{"id": "cg01BqanXhUJ", "names": "I Narang, C Mohan, K Brannon, M Subramanian", "date": "20, Dec 2018"}
+{"id": "wMa4fMryrt0J", "names": "MA Hernandez, RJ Miller, L Haas, L Yan, CTH Ho, X  ", "date": "21, Dec 2018"}
+{"id": "wLNJcNvsulkJ", "names": "K Bohme, TC Rakow", "date": "24, Dec 2018"}
+{"id": "nIuz3dc8yHMJ", "names": "M Petrovic, I Burcea, HA Jacobsen", "date": "28, Dec 2018"}
+{"id": "5qg4BNiroqMJ", "names": "P Buneman, L Raschid, JD Ullman", "date": "23, Dec 2018"}
+{"id": "0HlMHEPJRH4J", "names": "J Shanmugasundaram, I Tatarinov, E Viglas, K Beyer ", "date": "25, Dec 2018"}
+{"id": "Ko9e8CH2Si4J", "names": "L Zhe, AR Kenneth", "date": "26, Dec 2018"}
+{"id": "Ad5NAPgWIIUJ", "names": "W Litwin", "date": "21, Dec 2018"}
+{"id": "rDObsYKVroMJ", "names": "A Datta, K Dutta, HM Thomas, DE VanderMeer, K  ", "date": "26, Dec 2018"}
+{"id": "zuVOWDbv0lsJ", "names": "V ay Raghavan", "date": "20, Dec 2018"}
+{"id": "SsOLRJZrmtYJ", "names": "A Dan, PS Yu, JY Chung", "date": "20, Dec 2018"}
+{"id": "oAO74aolStoJ", "names": "DD Dengi, E Kilic", "date": "26, Dec 2018"}
+{"id": "3zbpGI3YqXUJ", "names": "N Ashish", "date": "28, Dec 2018"}
+{"id": "qwjRkZuiMHsJ", "names": "MR Mediano", "date": "26, Dec 2018"}
+{"id": "3M_0Kd8NNjgJ", "names": "S Chakravarthy, V Krishnaprasad, E Anwar, SK Kim", "date": "29, Dec 2018"}
+{"id": "G-ggEZEKjT8J", "names": "K Mogi, M Kitsuregawa", "date": "20, Dec 2018"}
+{"id": "Hz_TU6kUj08J", "names": "C Lee, CS Shih, YH Chen", "date": "20, Dec 2018"}
+{"id": "-iaSLKFHwUkJ", "names": "N FRANKLI, C MJ", "date": "22, Dec 2018"}
+{"id": "f1wgD54UUKwJ", "names": "J Clifford, C Dyreson, T Isakowitz, CS Jensen, RT  ", "date": "25, Dec 2018"}
+{"id": "7dcgPQxHuCMJ", "names": "JM Hellerstein, JP Haas, HJ Wang", "date": "21, Dec 2018"}
+{"id": "sHJ914nPZtUJ", "names": "L Yang", "date": "24, Dec 2018"}
+{"id": "nXj_8Y7lmHsJ", "names": "X Wang, M Cherniack", "date": "28, Dec 2018"}
+{"id": "itP4yy9sLUUJ", "names": "P Brown", "date": "21, Dec 2018"}
+{"id": "xc8KEoeRT9sJ", "names": "K Sagonas, T Swift, DS Warren", "date": "21, Dec 2018"}
+{"id": "DwwSuaisX5QJ", "names": "PM Schwarz, MT Roth", "date": "26, Dec 2018"}
+{"id": "vIBvTfMLL4UJ", "names": "H Waqar, D Florescu, P Valduriez", "date": "28, Dec 2018"}
+{"id": "S8x6zjXc9oAJ", "names": "EP Harris, K Ramamohanarao", "date": "25, Dec 2018"}
+{"id": "3y6y5AXu-j0J", "names": "E Pourabbas, M Rafanelli", "date": "20, Dec 2018"}
+{"id": "Xx6kw0tCeQIJ", "names": "S Sarawagi", "date": "21, Dec 2018"}
+{"id": "EXwe9r79qxEJ", "names": "H Darwen, CJ Date", "date": "27, Dec 2018"}
+{"id": "xF8s5N7oUIMJ", "names": "Y Huang", "date": "25, Dec 2018"}
