@@ -62,18 +62,8 @@ class RecordULAN(rltk.Record):
         return self.raw_object['byear']['value']
 
 
-ds_aaa = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/aaa.json'), record_class=RecordAAA, size=1000)
-ds_ulan = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/ulan.json'), record_class=RecordULAN, size=1000)
-
-
 def block_on_name_prefix(r):
     return [n[:2] for n in r.name_tokens]
-
-
-bg = rltk.TokenBlockGenerator()
-b_aaa = bg.block(ds_aaa, function_=block_on_name_prefix)
-b_ulan = bg.block(ds_ulan, function_=block_on_name_prefix)
-b_aaa_ulan = bg.generate(b_aaa, b_ulan)
 
 
 def compare(r_aaa, r_ulan):
@@ -82,7 +72,7 @@ def compare(r_aaa, r_ulan):
         if r_aaa.birthyear != r_ulan.birthyear:
             return 0
 
-    return rltk.hybrid_jaccard_similarity(r_aaa.name_tokens, r_ulan.name_tokens, threshold=0.3)
+    return rltk.hybrid_jaccard_similarity(r_aaa.name_tokens, r_ulan.name_tokens, threshold=0.67)
 
 
 def output_handler(*arg):
@@ -104,20 +94,45 @@ def output_handler(*arg):
 # time_pp = time.time() - time_start
 # print('pp time:', time_pp)
 
-match = {}
-threshold = 0.67
-time_start = time.time()
-for idx, (r_aaa, r_ulan) in enumerate(rltk.get_record_pairs(ds_aaa, ds_ulan, block=b_aaa_ulan)):
-    if idx % 10000 == 0:
-        print(idx)
+if __name__ == '__main__':
+    INIT_ULAN = False
+    ulan_ds_adapter = rltk.RedisKeyValueAdapter('127.0.0.1', key_prefix='ulan_ds_')
+    bg = rltk.TokenBlockGenerator()
+    ulan_block = rltk.Block(rltk.RedisKeySetAdapter('127.0.0.1', key_prefix='ulan_block_'))
 
-    score = compare(r_aaa, r_ulan)
-    if score > threshold:
-        prev = match.get(r_aaa.id, [0, 'dummy ulan id'])
-        if score > prev[0]:
-            match[r_aaa.id] = [score, r_ulan.id]
+    # pre computing for ulan data
+    if INIT_ULAN:
+        ds_ulan = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/ulan.json'),
+                               record_class=RecordULAN,
+                               adapter=ulan_ds_adapter)
+        b_ulan = bg.block(ds_ulan, function_=block_on_name_prefix, block=ulan_block)
+        exit()
 
-time_normal = time.time() - time_start
-print('normal time:', time_normal)
-print(len(match))
-print(match)
+    # load ulan
+    ds_ulan = rltk.Dataset(adapter=ulan_ds_adapter)
+    b_ulan = ulan_block
+
+    # load aaa
+    ds_aaa = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/aaa.json'),
+                          record_class=RecordAAA)
+    b_aaa = bg.block(ds_aaa, function_=block_on_name_prefix)
+    b_aaa_ulan = bg.generate(b_aaa, b_ulan)
+
+    print('start...')
+    match = {}
+    threshold = 0.67
+    time_start = time.time()
+    for idx, (r_aaa, r_ulan) in enumerate(rltk.get_record_pairs(ds_aaa, ds_ulan, block=b_aaa_ulan)):
+        if idx % 10000 == 0:
+            print(idx)
+
+        score = compare(r_aaa, r_ulan)
+        if score > threshold:
+            prev = match.get(r_aaa.id, [0, 'dummy ulan id'])
+            if score > prev[0]:
+                match[r_aaa.id] = [score, r_ulan.id]
+
+    time_normal = time.time() - time_start
+    print('normal time:', time_normal)
+    print(len(match))
+    print(match)
