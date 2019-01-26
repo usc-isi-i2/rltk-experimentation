@@ -1,4 +1,5 @@
 import re
+import sys
 import time
 import rltk
 
@@ -85,19 +86,6 @@ def output_handler(*arg):
         print(r_aaa.name, r_ulan.name)
 
 
-# time_start = time.time()
-# pp = rltk.ParallelProcessor(is_pair, 8)
-# pp.start()
-#
-# for idx, (r_aaa, r_ulan) in enumerate(rltk.get_record_pairs(ds_aaa, ds_ulan)):
-#     print(idx)
-#     pp.compute(r_aaa, r_ulan)
-#
-# pp.task_done()
-# pp.join()
-# time_pp = time.time() - time_start
-# print('pp time:', time_pp)
-
 if __name__ == '__main__':
     INIT_ULAN = False
     ulan_ds_adapter = rltk.RedisKeyValueAdapter('127.0.0.1', key_prefix='ulan_ds_')
@@ -126,36 +114,68 @@ if __name__ == '__main__':
     pairwise_len = sum(1 for _ in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id))
     ulan_len = sum(1 for _ in ds_ulan)
     autry_len = sum(1 for _ in ds_autry)
-    print('pairwise comparison:', pairwise_len, 'ratio: {}%'.format(pairwise_len / (ulan_len * autry_len) * 100))
+    print('pairwise comparison:', pairwise_len, 'ratio:', format(pairwise_len / (ulan_len * autry_len)))
 
-    dup = {}
-    for _, aid, uid in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id):
-        k = '{}|{}'.format(aid, uid)
-        if k not in dup:
-            dup[k] = 0
-        dup[k] += 1
-
-    import operator, functools
-    total = functools.reduce(operator.add, dup.values())
-    print('duplicate ratio:', total / len(dup))
+    # dup = {}
+    # for _, aid, uid in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id):
+    #     k = '{}|{}'.format(aid, uid)
+    #     if k not in dup:
+    #         dup[k] = 0
+    #     dup[k] += 1
+    # import operator, functools
+    # total = functools.reduce(operator.add, dup.values())
+    # print('duplication ratio:', total / len(dup))
 
     # start
     print('start pairwise comparison...')
-    match = {}
-    threshold = 0.67
+    # match = {}
+    # threshold = 0.67
+    # time_start = time.time()
+    # for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
+    #     if idx % 10000 == 0:
+    #         print('\r', idx, end='')
+    #         sys.stdout.flush()
+    #
+    #     score = compare(r_autry, r_ulan)
+    #     if score > threshold:
+    #         prev = match.get(r_autry.id, [0, 'dummy ulan id'])
+    #         if score > prev[0]:
+    #             match[r_autry.id] = [score, r_ulan.id]
+    # time_normal = time.time() - time_start
+    #
+    # print('\r', end='')
+    # print('normal time:', time_normal / 60)
+    # print(len(match))
+    # print(match)
+
+    def compare_batch(batch):
+        ret = []
+        for b in batch:
+            ret.append(compare(b[0], b[1]))
+        return ret
+
+    pp = rltk.ParallelProcessor(compare_batch, 16)
+    pp.start()
+
     time_start = time.time()
+    batch_size = 100
+    batch_data = []
     for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
         if idx % 10000 == 0:
             print('\r', idx, end='')
+            sys.stdout.flush()
+        if len(batch_data) >= batch_size:
+            pp.compute(batch_data)
+            batch_data = []
+        batch_data.append((r_autry, r_ulan))
 
-        score = compare(r_autry, r_ulan)
-        if score > threshold:
-            prev = match.get(r_autry.id, [0, 'dummy ulan id'])
-            if score > prev[0]:
-                match[r_autry.id] = [score, r_ulan.id]
+    if len(batch_data) > 0:
+        pp.compute(batch_data)
 
-    time_normal = time.time() - time_start
+    pp.task_done()
+    pp.join()
+    time_pp = time.time() - time_start
     print('\r', end='')
-    print('normal time:', time_normal / 60)
-    print(len(match))
-    print(match)
+    print('pp time:', time_pp / 60)
+    # print(len(match))
+    # print(match)
