@@ -17,7 +17,7 @@ def tokenize_name(name):
 
 
 @rltk.remove_raw_object
-class RecordAAA(rltk.Record):
+class RecordAutry(rltk.Record):
     @rltk.cached_property
     def id(self):
         return self.raw_object['uri']['value']
@@ -63,7 +63,11 @@ class RecordULAN(rltk.Record):
 
 
 def block_on_name_prefix(r):
-    return [n[:2] for n in r.name_tokens]
+    ret = []
+    for n in r.name_tokens:
+        if len(n) > 2:
+            ret.append(n[:2])
+    return ret
 
 
 def compare(r_aaa, r_ulan):
@@ -112,27 +116,46 @@ if __name__ == '__main__':
     ds_ulan = rltk.Dataset(adapter=ulan_ds_adapter)
     b_ulan = ulan_block
 
-    # load aaa
-    ds_aaa = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/aaa.json'),
-                          record_class=RecordAAA)
-    b_aaa = bg.block(ds_aaa, function_=block_on_name_prefix)
-    b_aaa_ulan = bg.generate(b_aaa, b_ulan)
+    # load autry
+    ds_autry = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/autry.json'),
+                          record_class=RecordAutry)
+    b_autry = bg.block(ds_autry, function_=block_on_name_prefix)
+    b_autry_ulan = bg.generate(b_autry, b_ulan)
 
-    print('start...')
+    # statistics
+    pairwise_len = sum(1 for _ in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id))
+    ulan_len = sum(1 for _ in ds_ulan)
+    autry_len = sum(1 for _ in ds_autry)
+    print('pairwise comparison:', pairwise_len, 'ratio: {}%'.format(pairwise_len / (ulan_len * autry_len) * 100))
+
+    dup = {}
+    for _, aid, uid in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id):
+        k = '{}|{}'.format(aid, uid)
+        if k not in dup:
+            dup[k] = 0
+        dup[k] += 1
+
+    import operator, functools
+    total = functools.reduce(operator.add, dup.values())
+    print('duplicate ratio:', total / len(dup))
+
+    # start
+    print('start pairwise comparison...')
     match = {}
     threshold = 0.67
     time_start = time.time()
-    for idx, (r_aaa, r_ulan) in enumerate(rltk.get_record_pairs(ds_aaa, ds_ulan, block=b_aaa_ulan)):
+    for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
         if idx % 10000 == 0:
-            print(idx)
+            print('\r', idx, end='')
 
-        score = compare(r_aaa, r_ulan)
+        score = compare(r_autry, r_ulan)
         if score > threshold:
-            prev = match.get(r_aaa.id, [0, 'dummy ulan id'])
+            prev = match.get(r_autry.id, [0, 'dummy ulan id'])
             if score > prev[0]:
-                match[r_aaa.id] = [score, r_ulan.id]
+                match[r_autry.id] = [score, r_ulan.id]
 
     time_normal = time.time() - time_start
-    print('normal time:', time_normal)
+    print('\r', end='')
+    print('normal time:', time_normal / 60)
     print(len(match))
     print(match)
