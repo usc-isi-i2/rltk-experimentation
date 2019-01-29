@@ -128,8 +128,10 @@ if __name__ == '__main__':
 
     # start
     print('start pairwise comparison...')
-    # match = {}
-    # threshold = 0.67
+    match = {}
+    threshold = 0.67
+
+    # serial
     # time_start = time.time()
     # for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
     #     if idx % 10000 == 0:
@@ -148,17 +150,27 @@ if __name__ == '__main__':
     # print(len(match))
     # print(match)
 
-    def compare_batch(batch):
+
+    # parallel
+    def compare_batched(batch):
         ret = []
         for b in batch:
-            ret.append(compare(b[0], b[1]))
+            ret.append( (b[0], b[1], compare(b[0], b[1])) )
         return ret
 
-    pp = rltk.ParallelProcessor(compare_batch, 16)
+    def output_batched(ret):
+        for r in ret:
+            r_autry, r_ulan, score = r
+            if score > threshold:
+                prev = match.get(r_autry.id, [0, 'dummy ulan id'])
+                if score > prev[0]:
+                    match[r_autry.id] = (score, r_ulan.id)
+
+    pp = rltk.ParallelProcessor(compare_batched, 16, output_handler=output_batched)
     pp.start()
 
     time_start = time.time()
-    batch_size = 100
+    batch_size = 500
     batch_data = []
     for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
         if idx % 10000 == 0:
@@ -177,5 +189,5 @@ if __name__ == '__main__':
     time_pp = time.time() - time_start
     print('\r', end='')
     print('pp time:', time_pp / 60)
-    # print(len(match))
-    # print(match)
+    print(len(match))
+    print(match)
