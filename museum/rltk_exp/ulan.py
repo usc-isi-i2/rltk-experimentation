@@ -58,7 +58,7 @@ class RecordULAN(rltk.Record):
     def name_tokens(self):
         return tokenize_name(self.raw_object['name']['value'])
 
-    @property
+    @rltk.cached_property
     def birthyear(self):
         return self.raw_object['byear']['value']
 
@@ -71,19 +71,13 @@ def block_on_name_prefix(r):
     return ret
 
 
-def compare(r_aaa, r_ulan):
+def compare(r_museum, r_ulan):
     # if birth year exists and not equal, exact not match
-    if r_aaa.birthyear and r_ulan.birthyear:
-        if r_aaa.birthyear != r_ulan.birthyear:
+    if r_museum.birthyear and r_ulan.birthyear:
+        if r_museum.birthyear != r_ulan.birthyear:
             return 0
 
-    return rltk.hybrid_jaccard_similarity(r_aaa.name_tokens, r_ulan.name_tokens, threshold=0.67)
-
-
-def output_handler(*arg):
-    if arg[0]:
-        r_aaa, r_ulan = arg[1], arg[2]
-        print(r_aaa.name, r_ulan.name)
+    return rltk.hybrid_jaccard_similarity(r_museum.name_tokens, r_ulan.name_tokens, threshold=0.67)
 
 
 if __name__ == '__main__':
@@ -176,12 +170,13 @@ if __name__ == '__main__':
         time_start = time.time()
         for idx, (r_museum, r_ulan) in enumerate(rltk.get_record_pairs(ds_museum, ds_ulan, block=b_museum_ulan)):
             if idx % 10000 == 0:
-                break
                 print('\r', idx, end='')
                 sys.stdout.flush()
             mr.add_task(r_museum, r_ulan)
 
-        print('')
+        print('\r', end='')
         result = mr.join()
+        print(len(result))
         time_pp = time.time() - time_start
         print('pp time:', time_pp / 60)
+
