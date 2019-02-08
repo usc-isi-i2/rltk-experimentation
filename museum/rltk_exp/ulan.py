@@ -101,7 +101,7 @@ if __name__ == '__main__':
     b_ulan = ulan_block
 
     # compare against museums' data
-    museums = list(map(lambda x: os.path.basename(x).splitext()[0], glob.glob('../../datasets/museum/*.json')))
+    museums = list(map(lambda x: os.path.splitext(os.path.basename(x))[0], glob.glob('../../datasets/museum/*.json')))
     museums.remove('ulan.json')
     for museum in museums:
         print('-------------------')
