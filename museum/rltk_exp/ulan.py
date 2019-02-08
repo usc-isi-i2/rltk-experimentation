@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     # compare against museums' data
     museums = list(map(lambda x: os.path.splitext(os.path.basename(x))[0], glob.glob('../../datasets/museum/*.json')))
-    museums.remove('ulan.json')
+    museums.remove('ulan')
     for museum in museums:
         print('-------------------')
         print('For museum: {}'.format(museum))
