@@ -2,6 +2,8 @@ import re
 import sys
 import time
 import rltk
+import glob
+import os
 
 
 name_filter = re.compile('[^A-Za-z0-9 ]+')
@@ -99,7 +101,8 @@ if __name__ == '__main__':
     b_ulan = ulan_block
 
     # compare against museums' data
-    museums = ['autry']
+    museums = list(map(lambda x: os.path.basename(x), glob.glob('../../datasets/museum/*.json')))
+    museums.remove('ulan.json')
     for museum in museums:
         print('-------------------')
         print('For museum: {}'.format(museum))
@@ -179,4 +182,5 @@ if __name__ == '__main__':
         print(len(result))
         time_pp = time.time() - time_start
         print('pp time:', time_pp / 60)
+
 
