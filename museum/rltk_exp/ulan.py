@@ -18,7 +18,7 @@ def tokenize_name(name):
 
 
 @rltk.remove_raw_object
-class RecordAutry(rltk.Record):
+class RecordMuseum(rltk.Record):
     @rltk.cached_property
     def id(self):
         return self.raw_object['uri']['value']
@@ -58,7 +58,7 @@ class RecordULAN(rltk.Record):
     def name_tokens(self):
         return tokenize_name(self.raw_object['name']['value'])
 
-    @rltk.cached_property
+    @property
     def birthyear(self):
         return self.raw_object['byear']['value']
 
@@ -104,90 +104,84 @@ if __name__ == '__main__':
     ds_ulan = rltk.Dataset(adapter=ulan_ds_adapter)
     b_ulan = ulan_block
 
-    # load autry
-    ds_autry = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/autry.json'),
-                          record_class=RecordAutry)
-    b_autry = bg.block(ds_autry, function_=block_on_name_prefix)
-    b_autry_ulan = bg.generate(b_autry, b_ulan)
+    # compare against museums' data
+    museums = ['autry']
+    for museum in museums:
+        print('-------------------')
+        print('For museum: {}'.format(museum))
 
-    # statistics
-    pairwise_len = sum(1 for _ in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id))
-    ulan_len = sum(1 for _ in ds_ulan)
-    autry_len = sum(1 for _ in ds_autry)
-    print('pairwise comparison:', pairwise_len, 'ratio:', format(pairwise_len / (ulan_len * autry_len)))
+        # load museum
+        ds_museum = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/{}.json'.format(museum)),
+                              record_class=RecordMuseum)
+        b_museum = bg.block(ds_museum , function_=block_on_name_prefix)
+        b_museum_ulan = bg.generate(b_museum, b_ulan)
 
-    # dup = {}
-    # for _, aid, uid in b_autry_ulan.pairwise(ds_autry.id, ds_ulan.id):
-    #     k = '{}|{}'.format(aid, uid)
-    #     if k not in dup:
-    #         dup[k] = 0
-    #     dup[k] += 1
-    # import operator, functools
-    # total = functools.reduce(operator.add, dup.values())
-    # print('duplication ratio:', total / len(dup))
+        # statistics
+        pairwise_len = sum(1 for _ in b_museum_ulan.pairwise(ds_museum.id, ds_ulan.id))
+        ulan_len = sum(1 for _ in ds_ulan)
+        museum_len = sum(1 for _ in ds_museum)
+        print('pairwise comparison:', pairwise_len, 'ratio:', format(pairwise_len / (ulan_len * museum_len)))
 
-    # start
-    print('start pairwise comparison...')
-    match = {}
-    threshold = 0.67
+        # dup = {}
+        # for _, aid, uid in b_museum_ulan.pairwise(ds_museum.id, ds_ulan.id):
+        #     k = '{}|{}'.format(aid, uid)
+        #     if k not in dup:
+        #         dup[k] = 0
+        #     dup[k] += 1
+        # import operator, functools
+        # total = functools.reduce(operator.add, dup.values())
+        # print('duplication ratio:', total / len(dup))
 
-    # serial
-    # time_start = time.time()
-    # for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
-    #     if idx % 10000 == 0:
-    #         print('\r', idx, end='')
-    #         sys.stdout.flush()
-    #
-    #     score = compare(r_autry, r_ulan)
-    #     if score > threshold:
-    #         prev = match.get(r_autry.id, [0, 'dummy ulan id'])
-    #         if score > prev[0]:
-    #             match[r_autry.id] = [score, r_ulan.id]
-    # time_normal = time.time() - time_start
-    #
-    # print('\r', end='')
-    # print('normal time:', time_normal / 60)
-    # print(len(match))
-    # print(match)
+        # start
+        print('start pairwise comparison...')
+        match = {}
+        threshold = 0.67
 
+        # serial
+        # time_start = time.time()
+        # for idx, (r_museum, r_ulan) in enumerate(rltk.get_record_pairs(ds_museum, ds_ulan, block=b_museum_ulan)):
+        #     if idx % 10000 == 0:
+        #         print('\r', idx, end='')
+        #         sys.stdout.flush()
+        #
+        #     score = compare(r_museum, r_ulan)
+        #     if score > threshold:
+        #         prev = match.get(r_museum.id, [0, 'dummy ulan id'])
+        #         if score > prev[0]:
+        #             match[r_museum.id] = [score, r_ulan.id]
+        # time_normal = time.time() - time_start
+        #
+        # print('\r', end='')
+        # print('normal time:', time_normal / 60)
+        # print(len(match))
+        # print(match)
 
-    # parallel
-    def compare_batched(batch):
-        ret = []
-        for b in batch:
-            ret.append( (b[0], b[1], compare(b[0], b[1])) )
-        return ret
-
-    def output_batched(ret):
-        for r in ret:
-            r_autry, r_ulan, score = r
+        # parallel
+        def mapper(r_museum, r_ulan):
+            score = compare(r_museum, r_ulan)
+            r_museum_id = r_museum.id
+            r_ulan_id = r_ulan.id
             if score > threshold:
-                prev = match.get(r_autry.id, [0, 'dummy ulan id'])
-                if score > prev[0]:
-                    match[r_autry.id] = (score, r_ulan.id)
+                return {r_museum_id: (score, r_ulan_id)}
+            return {}
 
-    pp = rltk.ParallelProcessor(compare_batched, 16, output_handler=output_batched)
-    pp.start()
+        def reducer(r1, r2):
+            for k, v in r1.items():
+                if k not in r2 or v[0] > r2[k][0]:
+                    r2[k] = v
+            return r2
 
-    time_start = time.time()
-    batch_size = 500
-    batch_data = []
-    for idx, (r_autry, r_ulan) in enumerate(rltk.get_record_pairs(ds_autry, ds_ulan, block=b_autry_ulan)):
-        if idx % 10000 == 0:
-            print('\r', idx, end='')
-            sys.stdout.flush()
-        if len(batch_data) >= batch_size:
-            pp.compute(batch_data)
-            batch_data = []
-        batch_data.append((r_autry, r_ulan))
+        mr = rltk.MapReduce(8, mapper, reducer)
 
-    if len(batch_data) > 0:
-        pp.compute(batch_data)
+        time_start = time.time()
+        for idx, (r_museum, r_ulan) in enumerate(rltk.get_record_pairs(ds_museum, ds_ulan, block=b_museum_ulan)):
+            if idx % 10000 == 0:
+                break
+                print('\r', idx, end='')
+                sys.stdout.flush()
+            mr.add_task(r_museum, r_ulan)
 
-    pp.task_done()
-    pp.join()
-    time_pp = time.time() - time_start
-    print('\r', end='')
-    print('pp time:', time_pp / 60)
-    print(len(match))
-    print(match)
+        print('')
+        result = mr.join()
+        time_pp = time.time() - time_start
+        print('pp time:', time_pp / 60)
