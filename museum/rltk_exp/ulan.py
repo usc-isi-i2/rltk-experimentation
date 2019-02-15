@@ -83,18 +83,16 @@ def compare(r_museum, r_ulan):
 
 
 if __name__ == '__main__':
-    INIT_ULAN = False
     ulan_ds_adapter = rltk.RedisKeyValueAdapter('127.0.0.1', key_prefix='ulan_ds_')
     bg = rltk.TokenBlockGenerator()
     ulan_block = rltk.Block(rltk.RedisKeySetAdapter('127.0.0.1', key_prefix='ulan_block_'))
 
     # pre computing for ulan data
-    if INIT_ULAN:
+    if rltk.cli.confirm('Regenerate ULAN data caches?', default=False):
         ds_ulan = rltk.Dataset(reader=rltk.JsonLinesReader('../../datasets/museum/ulan.json'),
                                record_class=RecordULAN,
                                adapter=ulan_ds_adapter)
         b_ulan = bg.block(ds_ulan, function_=block_on_name_prefix, block=ulan_block)
-        exit()
 
     # load ulan
     ds_ulan = rltk.Dataset(adapter=ulan_ds_adapter)
@@ -171,16 +169,15 @@ if __name__ == '__main__':
         mr = rltk.MapReduce(8, mapper, reducer)
 
         time_start = time.time()
-        for idx, (r_museum, r_ulan) in enumerate(rltk.get_record_pairs(ds_museum, ds_ulan, block=b_museum_ulan)):
-            if idx % 10000 == 0:
-                print('\r', idx, end='')
-                sys.stdout.flush()
-            mr.add_task(r_museum, r_ulan)
+        with rltk.cli.progress(format_='{} pairs processed, time elapsed: {}') as p:
+            for idx, (r_museum, r_ulan) in enumerate(rltk.get_record_pairs(ds_museum, ds_ulan, block=b_museum_ulan)):
+                if idx % 100 == 0:
+                    p.update(idx, time.time() - time_start)
+                mr.add_task(r_museum, r_ulan)
 
-        print('\r', end='')
         result = mr.join()
-        print(len(result))
+        print('Number of true pairs:', len(result))
         time_pp = time.time() - time_start
-        print('pp time:', time_pp / 60)
+        print('Total time:', time_pp / 60)
 
 
