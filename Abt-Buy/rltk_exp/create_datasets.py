@@ -185,10 +185,10 @@ class BuyRecord(rltk.Record):
 
 
 ds_abt = rltk.Dataset(reader=rltk.CSVReader(open('../../datasets/Abt-Buy/Abt.csv', encoding='latin-1')),
-                   record_class=AbtRecord, adapter=rltk.MemoryAdapter())
+                      record_class=AbtRecord, adapter=rltk.MemoryKeyValueAdapter())
 
 ds_buy = rltk.Dataset(reader=rltk.CSVReader(open('../../datasets/Abt-Buy/Buy.csv', encoding='latin-1')),
-                   record_class=BuyRecord, adapter=rltk.MemoryAdapter())
+                      record_class=BuyRecord, adapter=rltk.MemoryKeyValueAdapter())
 
 # statistics
 print_details = False

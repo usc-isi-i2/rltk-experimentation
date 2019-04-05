@@ -4,6 +4,7 @@ import time
 import rltk
 import glob
 import os
+from pyrallel import MapReduce
 
 
 name_filter = re.compile('[^A-Za-z0-9 ]+')
@@ -166,7 +167,7 @@ if __name__ == '__main__':
                     r2[k] = v
             return r2
 
-        mr = rltk.MapReduce(8, mapper, reducer)
+        mr = MapReduce(8, mapper, reducer)
 
         time_start = time.time()
         with rltk.cli.progress(format_='{} pairs processed, time elapsed: {}') as p:
@@ -175,6 +176,7 @@ if __name__ == '__main__':
                     p.update(idx, time.time() - time_start)
                 mr.add_task(r_museum, r_ulan)
 
+        mr.task_done()
         result = mr.join()
         print('Number of true pairs:', len(result))
         time_pp = time.time() - time_start
